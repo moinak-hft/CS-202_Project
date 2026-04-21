@@ -28,7 +28,7 @@ llvmGetPassPluginInfo() {
                        ArrayRef<PassBuilder::PipelineElement>) {
                         if (Name == "print-dom-tree") {
                             FPM.addPass(DominatorTreePass());
-                            return true;
+                             return true;
                         }
                         return false;
                     });
