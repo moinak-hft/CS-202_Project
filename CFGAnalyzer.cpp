@@ -6,6 +6,7 @@
 #include "clang/Analysis/CFG.h"
 #include "clang/Tooling/CommonOptionsParser.h"
 #include "llvm/Support/CommandLine.h"
+#include "llvm/Support/raw_ostream.h"
 
 using namespace clang;
 using namespace clang::tooling;
@@ -16,21 +17,43 @@ public:
     explicit CFGVisitor(ASTContext *Context) : Context(Context) {}
 
     bool VisitFunctionDecl(FunctionDecl *Declaration) {
-        if (Declaration->hasBody()) {
-            CFG::BuildOptions Options;
-            std::unique_ptr<CFG> sourceCFG = CFG::buildCFG(
-                Declaration, Declaration->getBody(), Context, Options);
+        if (!Declaration->hasBody()) return true;
+
+        CFG::BuildOptions Options;
+        std::unique_ptr<CFG> sourceCFG =
+            CFG::buildCFG(Declaration, Declaration->getBody(), Context, Options);
+
+        if (!sourceCFG) return true;
+
+    
+        outs() << "digraph CFG {\n";
+
+        for (auto *block : *sourceCFG) {
+            if (!block) continue;
+
+            int src_id = block->getBlockID();
+
+
+            outs() << "  B" << src_id << " [label=\"B" << src_id << "\"];\n";
+
             
-            if (sourceCFG) {
-                sourceCFG->dump(Context->getLangOpts(), true);
+            for (auto succ : block->succs()) {
+                if (succ.getReachableBlock()) {
+                    int dst_id = succ.getReachableBlock()->getBlockID();
+                    outs() << "  B" << src_id << " -> B" << dst_id << ";\n";
+                }
             }
         }
+
+        outs() << "}\n";
+
         return true;
     }
+
 private:
     ASTContext *Context;
 };
-//hello
+
 class CFGConsumer : public ASTConsumer {
 public:
     explicit CFGConsumer(ASTContext *Context) : Visitor(Context) {}
@@ -38,13 +61,15 @@ public:
     void HandleTranslationUnit(ASTContext &Context) override {
         Visitor.TraverseDecl(Context.getTranslationUnitDecl());
     }
+
 private:
     CFGVisitor Visitor;
 };
 
 class CFGAction : public ASTFrontendAction {
 public:
-    std::unique_ptr<ASTConsumer> CreateASTConsumer(CompilerInstance &Compiler, llvm::StringRef InFile) override {
+    std::unique_ptr<ASTConsumer> CreateASTConsumer(
+        CompilerInstance &Compiler, StringRef InFile) override {
         return std::make_unique<CFGConsumer>(&Compiler.getASTContext());
     }
 };
@@ -57,9 +82,10 @@ int main(int argc, const char **argv) {
         errs() << ExpectedParser.takeError();
         return 1;
     }
-    
+
     CommonOptionsParser &OptionsParser = ExpectedParser.get();
-    ClangTool Tool(OptionsParser.getCompilations(), OptionsParser.getSourcePathList());
+    ClangTool Tool(OptionsParser.getCompilations(),
+                   OptionsParser.getSourcePathList());
 
     return Tool.run(newFrontendActionFactory<CFGAction>().get());
 }
