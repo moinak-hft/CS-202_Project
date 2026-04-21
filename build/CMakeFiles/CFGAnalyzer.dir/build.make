@@ -93,6 +93,7 @@ CFGAnalyzer_EXTERNAL_OBJECTS =
 CFGAnalyzer: CMakeFiles/CFGAnalyzer.dir/CFGAnalyzer.cpp.o
 CFGAnalyzer: CMakeFiles/CFGAnalyzer.dir/build.make
 CFGAnalyzer: /usr/lib/llvm-18/lib/libclang-cpp.so.18.1
+CFGAnalyzer: /usr/lib/llvm-18/lib/libLLVM.so.1
 CFGAnalyzer: CMakeFiles/CFGAnalyzer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/CS-202_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable CFGAnalyzer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CFGAnalyzer.dir/link.txt --verbose=$(VERBOSE)
