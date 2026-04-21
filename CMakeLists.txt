@@ -12,10 +12,6 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(CFGAnalyzer CFGAnalyzer.cpp)
 
 target_link_libraries(CFGAnalyzer
-    clangAST
-    clangBasic
-    clangFrontend
-    clangTooling
-    clangAnalysis
-    LLVMSupport
+    clang-cpp
+    LLVM
 )
