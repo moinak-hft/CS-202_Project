@@ -51,7 +51,7 @@ cmake ..
 make
 ./CFGAnalyzer <input_file.c>
 
-Author's:
+Author/'s:
 1. Shobhit Gupta 2024CSB1155
 2. Shubham _ 2024CSB1157
 3. Tanish Kumar 2024CSB1161
