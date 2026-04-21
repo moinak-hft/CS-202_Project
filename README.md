@@ -50,3 +50,10 @@ cd build
 cmake ..
 make
 ./CFGAnalyzer <input_file.c>
+
+Author's:
+1. Shobhit Gupta 2024CSB1155
+2. Shubham _ 2024CSB1157
+3. Tanish Kumar 2024CSB1161
+4. Moinak Goswami 2024CSB1225
+5. Abhijit Kishan Kamble 2024CSB1401
