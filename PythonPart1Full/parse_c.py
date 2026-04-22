@@ -4,6 +4,7 @@ from networkx.drawing.nx_pydot import to_pydot
 from graphviz import Digraph
 import re
 
+# Processing code pycparser supported
 def preprocess_code(code):
     # remove single-line comments
     code = re.sub(r'//.*', '', code)
@@ -29,11 +30,12 @@ with open("input.c", "r") as f:
 
 code = preprocess_code(code)
 
+#ast bana diya using pycparser
 parser = c_parser.CParser()
 ast = parser.parse(code)
 
 
-
+######### Entering into constantfolder optimzation
 class ConstantFolder:
 
     def fold(self, node):
@@ -87,12 +89,12 @@ class ConstantFolder:
 
         return node
 
-
 def apply_constant_folding(ast):
     folder = ConstantFolder()
     folder.fold(ast)
 
 
+######### Entering into constantPropagator optimization
 class ConstantPropagator:
 
     def __init__(self):
@@ -166,7 +168,6 @@ class ConstantPropagator:
         elif isinstance(stmt, c_ast.Return):
             stmt.expr = self.propagate_expr(stmt.expr)
 
-
 def apply_constant_propagation(ast):
     cp = ConstantPropagator()
 
@@ -174,19 +175,19 @@ def apply_constant_propagation(ast):
         if isinstance(ext, c_ast.FuncDef):
             cp.visit(ext.body)
 
+
+######### Entering into SimpleDCE(dead code elimination)  
 def is_constant_true(expr):
     return isinstance(expr, c_ast.Constant) and expr.value != '0'
 
 def is_constant_false(expr):
     return isinstance(expr, c_ast.Constant) and expr.value == '0'
 
-
 def is_exit_call(stmt):
     if isinstance(stmt, c_ast.FuncCall):
         if isinstance(stmt.name, c_ast.ID):
             return stmt.name.name in ["exit", "abort"]
     return False
-
 
 class SimpleDCE:
 
@@ -282,7 +283,6 @@ class SimpleDCE:
             if stmt.iffalse:
                 self.process(stmt.iffalse)
 
-
 def apply_simple_dce(ast):
     dce = SimpleDCE()
 
@@ -291,7 +291,7 @@ def apply_simple_dce(ast):
             dce.process(ext.body)
 
 
-# extract variables
+######### Entering into Unused Assignment Eliminator
 def get_vars(expr):
     vars = set()
 
@@ -316,8 +316,6 @@ def get_vars(expr):
 
     return vars
 
-
-#
 class UnusedAssignmentEliminator:
 
     def process_block(self, block):
@@ -423,8 +421,6 @@ class UnusedAssignmentEliminator:
         elif isinstance(stmt, c_ast.For):
             self.process(stmt.stmt)
 
-
-# apply uae 
 def apply_unused_assignment_elimination(ast):
     uae = UnusedAssignmentEliminator()
 
@@ -442,7 +438,6 @@ def expr_to_str(expr):
     elif isinstance(expr, c_ast.BinaryOp):
         return f"{expr_to_str(expr.left)} {expr.op} {expr_to_str(expr.right)}"
     return "expr"
-
 
 def get_stmt_label(stmt):
     if isinstance(stmt, c_ast.Assignment):
@@ -478,6 +473,7 @@ def build_ast_graph(node, parent=None):
 
 build_ast_graph(ast)
 
+#Converting that function into ast.png
 ast_pydot = to_pydot(ast_graph)
 for n in ast_graph.nodes(data=True):
     ast_pydot.get_node(str(n[0]))[0].set_label(n[1]['label'])
@@ -487,6 +483,7 @@ ast_pydot.write_png("ast.png")
 cfg = nx.DiGraph()
 node_id = 0
 
+######### Entering into CFG graph making
 def new_node(label):
     global node_id
     nid = node_id
@@ -496,7 +493,6 @@ def new_node(label):
 
 # entry Node Added
 entry = new_node("ENTRY")
-
 
 def build_cfg(stmt):
 
@@ -670,6 +666,8 @@ def buildandsavecfggraphfinalwala(ast, filename, printingname):
 
     print(printingname)
 
+
+###### TEST CASES FOR DEBUGGING
 # buildandsavecfggraphfinalwala(ast, "cfg_original.png", "hehe")
 # apply_constant_folding(ast)
 # buildandsavecfggraphfinalwala(ast, "cfg_fold1.png", "hehe")
@@ -685,8 +683,12 @@ def buildandsavecfggraphfinalwala(ast, filename, printingname):
 # apply_unused_assignment_elimination(ast)
 # buildandsavecfggraphfinalwala(ast, "cfg_unreachable.png", "hehe")
 
-#sare graph ko jorne ka system
+
+
+
+#final pipeline graph banane ka logic
 def build_pipeline_graph(stages):
+
     g = Digraph(format='png')
 
     
@@ -713,10 +715,11 @@ def build_pipeline_graph(stages):
             g.edge(prev_name, name, label=label)
 
     g.render("pipeline_graph")
+
+#our pipeline for optimizing the cfg - collects stages and send to build_pipeline_graph -maximum iteration 50
 def ast_to_string(ast):
     return str(ast)
-
-def optimize_until_fixed(ast, max_iter=3000):
+def optimize_until_fixed(ast, max_iter=50):
 
     prev = None
     i = 0
@@ -764,16 +767,13 @@ def optimize_until_fixed(ast, max_iter=3000):
     build_pipeline_graph(stages)
     return ast
 
-
-
+# Pipeline
+# (prop -> folding -> dce)ⁿ then uae
 
 
 
 buildandsavecfggraphfinalwala(ast, "cfg_original.png", "original")
-
-
 optimize_until_fixed(ast)
-
 buildandsavecfggraphfinalwala(ast, "cfg_optimized.png", "final")
 
 
