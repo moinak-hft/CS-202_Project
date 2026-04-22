@@ -1,9 +1,10 @@
+#include <stdio.h>
 int main()
 {
     int x = 2 + 3;
     int y = x + 5;
     int z = y + x;
-
+    //trying comment removal
     if (1 + 2 > 2)
     {
         int a = z + 5;
@@ -35,6 +36,8 @@ int main()
     }
 
     int dead5 = 123;
+
+    printf("%d", z);
 
     return 0;
 }

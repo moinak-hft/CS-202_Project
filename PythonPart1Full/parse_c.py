@@ -2,15 +2,36 @@ from pycparser import c_parser, c_ast
 import networkx as nx
 from networkx.drawing.nx_pydot import to_pydot
 from graphviz import Digraph
+import re
+
+def preprocess_code(code):
+    # remove single-line comments
+    code = re.sub(r'//.*', '', code)
+
+    # remove multi-line comments
+    code = re.sub(r'/\*.*?\*/', '', code, flags=re.DOTALL)
+
+    # remove #include lines
+    lines = code.splitlines()
+    filtered = []
+
+    for line in lines:
+        if line.strip().startswith("#include"):
+            continue
+        filtered.append(line)
+
+    return "\n".join(filtered)
+
 
 #it will load the input.c file
 with open("input.c", "r") as f:
     code = f.read()
 
+code = preprocess_code(code)
 
-#AST LIBRARY IS CALLED    
 parser = c_parser.CParser()
 ast = parser.parse(code)
+
 
 
 class ConstantFolder:
