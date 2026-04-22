@@ -3,19 +3,15 @@ import networkx as nx
 from networkx.drawing.nx_pydot import to_pydot
 from graphviz import Digraph
 
-# ---------------- SAMPLE CODE ----------------
-# ---------------- LOAD CODE FROM FILE ----------------
+#it will load the input.c file
 with open("input.c", "r") as f:
     code = f.read()
 
 
-# ---------------- PARSE AST ----------------
+#AST LIBRARY IS CALLED    
 parser = c_parser.CParser()
 ast = parser.parse(code)
 
-# =========================================================
-# 🔥 CONSTANT FOLDING (AST LEVEL)
-# =========================================================
 
 class ConstantFolder:
 
@@ -178,74 +174,74 @@ class SimpleDCE:
             return
 
         new_stmts = []
-        terminated = False   # 🔥 track return/exit
+        terminated = False   
 
         for stmt in block.block_items:
 
             if terminated:
-                continue   # 🔥 remove everything after return/exit
+                continue   # it will remove everything after a return statement
 
-            # -------- IF --------
+            #if ke liye
             if isinstance(stmt, c_ast.If):
 
-                # simplify condition
+                
                 cond = stmt.cond
 
                 if is_constant_true(cond):
-                    # keep only then
+                    
                     self.process(stmt.iftrue)
                     new_stmts.append(stmt.iftrue)
 
                 elif is_constant_false(cond):
-                    # keep only else
+                    
                     if stmt.iffalse:
                         self.process(stmt.iffalse)
                         new_stmts.append(stmt.iffalse)
-                    # else remove entirely
+                    
 
                 else:
-                    # unknown condition
+                    
                     self.process(stmt.iftrue)
                     if stmt.iffalse:
                         self.process(stmt.iffalse)
                     new_stmts.append(stmt)
 
-            # -------- WHILE --------
+            # while ke liye
             elif isinstance(stmt, c_ast.While):
 
                 if is_constant_false(stmt.cond):
-                    continue   # remove loop
+                    continue   
 
                 self.process(stmt.stmt)
                 new_stmts.append(stmt)
 
-            # -------- FOR --------
+            # for ke liye
             elif isinstance(stmt, c_ast.For):
 
-    # 🔥 propagate condition first
+    
                 if stmt.cond:
                     stmt.cond = stmt.cond
 
-                # 🔥 remove if always false
+                # remove if always false
                 if stmt.cond and is_constant_false(stmt.cond):
                     continue
 
-                # process body
+            
                 self.process(stmt.stmt)
 
                 new_stmts.append(stmt)
 
-            # -------- RETURN --------
+            
             elif isinstance(stmt, c_ast.Return):
                 new_stmts.append(stmt)
-                terminated = True   # 🔥 kill rest
+                terminated = True   
 
-            # -------- EXIT CALL --------
+            
             elif is_exit_call(stmt):
                 new_stmts.append(stmt)
                 terminated = True
 
-            # -------- COMPOUND --------
+            
             elif isinstance(stmt, c_ast.Compound):
                 self.process(stmt)
                 new_stmts.append(stmt)
@@ -274,7 +270,7 @@ def apply_simple_dce(ast):
             dce.process(ext.body)
 
 
-# -------- helper: extract variables --------
+# extract variables
 def get_vars(expr):
     vars = set()
 
@@ -300,7 +296,7 @@ def get_vars(expr):
     return vars
 
 
-# -------- main pass --------
+#
 class UnusedAssignmentEliminator:
 
     def process_block(self, block):
@@ -310,20 +306,19 @@ class UnusedAssignmentEliminator:
         live = set()
         new_stmts = []
 
-        # 🔥 backward traversal
+        
         for stmt in reversed(block.block_items):
 
-            # -------- Assignment --------
+        
             if isinstance(stmt, c_ast.Assignment):
                 lhs = stmt.lvalue.name
                 rhs_vars = get_vars(stmt.rvalue)
 
                 if lhs not in live:
-                    # 🔥 propagate dependencies ALWAYS
+                    
                     live |= rhs_vars
 
-                    # 🔥 DO NOT remove if RHS has dependencies
-                    # (prevents undefined variable like z)
+                    # agr rhs kisi pr depend krta he to remove mt krna
                     if not rhs_vars:
                         continue
 
@@ -334,7 +329,7 @@ class UnusedAssignmentEliminator:
                 live |= rhs_vars
                 new_stmts.append(stmt)
 
-            # -------- Declaration --------
+            
             elif isinstance(stmt, c_ast.Decl):
                 if stmt.init:
                     lhs = stmt.name
@@ -343,7 +338,7 @@ class UnusedAssignmentEliminator:
                     if lhs not in live:
                         live |= rhs_vars
 
-                        # 🔥 same protection as assignment
+                        #
                         if not rhs_vars:
                             continue
 
@@ -356,13 +351,13 @@ class UnusedAssignmentEliminator:
                 else:
                     new_stmts.append(stmt)
 
-            # -------- Return --------
+         
             elif isinstance(stmt, c_ast.Return):
                 if stmt.expr:
                     live |= get_vars(stmt.expr)
                 new_stmts.append(stmt)
 
-            # -------- If --------
+          
             elif isinstance(stmt, c_ast.If):
                 self.process(stmt.iftrue)
                 if stmt.iffalse:
@@ -371,24 +366,24 @@ class UnusedAssignmentEliminator:
                 live |= get_vars(stmt.cond)
                 new_stmts.append(stmt)
 
-            # -------- While --------
+
             elif isinstance(stmt, c_ast.While):
                 self.process(stmt.stmt)
                 live |= get_vars(stmt.cond)
                 new_stmts.append(stmt)
 
-            # -------- For --------
+            
             elif isinstance(stmt, c_ast.For):
                 self.process(stmt.stmt)
                 if stmt.cond:
                     live |= get_vars(stmt.cond)
                 new_stmts.append(stmt)
 
-            # -------- Default --------
+            
             else:
                 new_stmts.append(stmt)
 
-        # restore correct order
+        
         block.block_items = list(reversed(new_stmts))
 
 
@@ -408,19 +403,15 @@ class UnusedAssignmentEliminator:
             self.process(stmt.stmt)
 
 
-# -------- apply function --------
+# apply uae 
 def apply_unused_assignment_elimination(ast):
     uae = UnusedAssignmentEliminator()
 
     for ext in ast.ext:
         if isinstance(ext, c_ast.FuncDef):
             uae.process(ext.body)
-# APPLY OPTIMIZATION
 
 
-# =========================================================
-# 🔥 EXPRESSION → STRING (FOR CFG LABELS)
-# =========================================================
 
 def expr_to_str(expr):
     if isinstance(expr, c_ast.Constant):
@@ -445,13 +436,11 @@ def get_stmt_label(stmt):
         return f"if ({expr_to_str(stmt.cond)})"
     return type(stmt).__name__
 
-# =========================================================
-# ---------------- AST GRAPH ----------------
-# =========================================================
 
 ast_graph = nx.DiGraph()
 ast_id = 0
 
+#build ast function
 def build_ast_graph(node, parent=None):
     global ast_id
     curr = ast_id
@@ -473,9 +462,6 @@ for n in ast_graph.nodes(data=True):
     ast_pydot.get_node(str(n[0]))[0].set_label(n[1]['label'])
 
 ast_pydot.write_png("ast.png")
-# =========================================================
-# ---------------- CFG GRAPH ----------------
-# =========================================================
 
 cfg = nx.DiGraph()
 node_id = 0
@@ -487,23 +473,23 @@ def new_node(label):
     cfg.add_node(nid, label=label)
     return nid
 
-# 🔥 ENTRY NODE ADDED
+# entry Node Added
 entry = new_node("ENTRY")
 
 
 def build_cfg(stmt):
 
-    # -------- Simple --------
+
     if isinstance(stmt, (c_ast.Decl, c_ast.Assignment, c_ast.FuncCall)):
         n = new_node(get_stmt_label(stmt))
         return n, n
 
-    # -------- Return --------
+    
     elif isinstance(stmt, c_ast.Return):
         n = new_node(get_stmt_label(stmt))
-        return n, n   # 🔥 DO NOT terminate here
+        return n, n   
 
-    # -------- If --------
+    # if case
     elif isinstance(stmt, c_ast.If):
         cond = new_node(get_stmt_label(stmt))
 
@@ -532,7 +518,7 @@ def build_cfg(stmt):
 
         return cond, merge
 
-    # -------- While (🔥 FIX 1) --------
+    # while case
     elif isinstance(stmt, c_ast.While):
         cond = new_node(get_stmt_label(stmt))   # condition node
 
@@ -549,7 +535,7 @@ def build_cfg(stmt):
 
         return cond, exit_node
 
-    # -------- Compound --------
+    # Compound 
     elif isinstance(stmt, c_ast.Compound):
         if not stmt.block_items:
             return None, None
@@ -563,73 +549,71 @@ def build_cfg(stmt):
             if start is None:
                 start = s_start
 
-            # 🔥 FIX 2: don't connect after return
+            
             if prev_end is not None and s_start is not None:
                 cfg.add_edge(prev_end, s_start)
 
-            # 🔥 CRITICAL FIX
+            
             prev_end = s_end
 
         return start, prev_end
     elif isinstance(stmt, c_ast.For):
-    ##################
-    # init
+
         if stmt.init:
             init_start, init_end = build_cfg(stmt.init)
         else:
             init_start = init_end = None
 
-        # condition node
+        
         cond_label = "for"
         if stmt.cond:
             cond_label = f"for ({expr_to_str(stmt.cond)})"
 
         cond = new_node(cond_label)
 
-        # body
+        
         body_start, body_end = build_cfg(stmt.stmt)
 
-        # next (increment)
+        
         if stmt.next:
             next_start, next_end = build_cfg(stmt.next)
         else:
             next_start = next_end = None
 
-        # connect init → cond
+     
         if init_end is not None:
             cfg.add_edge(init_end, cond)
         elif init_start is not None:
             cfg.add_edge(init_start, cond)
 
-        # cond → body
+       
         if body_start:
             cfg.add_edge(cond, body_start, label="T")
 
-        # body → next
+        
         if body_end and next_start:
             cfg.add_edge(body_end, next_start)
 
-        # next → cond
+        
         if next_end:
             cfg.add_edge(next_end, cond)
         elif body_end:
             cfg.add_edge(body_end, cond)
 
-        # exit node
+        
         exit_node = new_node("exit for")
         cfg.add_edge(cond, exit_node, label="F")
 
-        # return start properly
+        
         if init_start:
             return init_start, exit_node
         else:
             return cond, exit_node
-    # ##################    
-    # -------- Default --------
+
     else:
         n = new_node(type(stmt).__name__)
         return n, n
-# BUILD CFG
+
 def buildandsavecfggraphfinalwala(ast, filename, printingname):
 
    
@@ -725,19 +709,19 @@ def optimize_until_fixed(ast, max_iter=3000):
 
         prev = curr
 
-        # ---- propagation ----
+        # propagation 
         apply_constant_propagation(ast)
         fname = f"cfg_iter_{i}_prop.png"
         buildandsavecfggraphfinalwala(ast, fname, f"{i}_prop")
         stages.append((f"iter{i}_prop", fname))
 
-        # ---- folding ----
+        # folding 
         apply_constant_folding(ast)
         fname = f"cfg_iter_{i}_fold.png"
         buildandsavecfggraphfinalwala(ast, fname, f"{i}_fold")
         stages.append((f"iter{i}_fold", fname))
 
-        # ---- dce ----
+        # dce 
         apply_simple_dce(ast)
         fname = f"cfg_iter_{i}_dce.png"
         buildandsavecfggraphfinalwala(ast, fname, f"{i}_dce")
