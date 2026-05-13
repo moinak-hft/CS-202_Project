@@ -312,9 +312,3 @@ debug.c
 - Moinak Goswami
 
 ---
-
-#  Project Report
-
-Detailed implementation and optimization explanations are included in the project report.
-
----
