@@ -247,26 +247,6 @@ A CFG is generated after every optimization stage for visualization purposes.
 
 ---
 
-# Example Optimization Flow
-
-```text
-Original Code
-      ↓
-Constant Propagation
-      ↓
-Constant Folding
-      ↓
-Dead Code Elimination
-      ↓
-Repeat Until Stable
-      ↓
-Unused Assignment Elimination
-      ↓
-Final Optimized CFG
-```
-
----
-
 # Known Limitations
 
 - Limited macro preprocessing support
