@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>C Optimizer Visualizer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, Arial, sans-serif;
+            background: #eef2f7;
+            color: #111827;
+        }
+
+        header {
+    height: 64px;
+    background: linear-gradient(90deg, #111827, #1f2937);
+    color: white;
+    padding: 0 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+        .title {
+            /* align-items: center; */
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .badge {
+    position: absolute;
+    right: 26px;
+    font-size: 13px;
+    color: #c7d2fe;
+    border: 1px solid rgba(199, 210, 254, 0.35);
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+
+        .container {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            height: calc(100vh - 64px);
+            gap: 18px;
+            padding: 18px;
+        }
+
+        .left,
+        .right {
+            min-height: 0;
+        }
+
+        .editor-card {
+            height: 100%;
+            background: #ffffff;
+            border: 1px solid #d8dee9;
+            border-radius: 14px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .card-head h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .hint {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        textarea {
+            flex: 1;
+            width: 100%;
+            background: #0b1020;
+            color: #e5e7eb;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #1f2937;
+            resize: none;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+        }
+
+        .actions {
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        button {
+            min-width: 150px;
+            height: 42px;
+            padding: 0 18px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button:disabled {
+            background: #64748b;
+            cursor: wait;
+            box-shadow: none;
+        }
+
+        .status {
+            display: none;
+            align-items: center;
+            gap: 9px;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 3px solid #cbd5e1;
+            border-top-color: #2563eb;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .right {
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .panel {
+            background: #ffffff;
+            border: 1px solid #d8dee9;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+            overflow: hidden;
+        }
+
+        .panel h2 {
+            margin: 0;
+            padding: 14px 16px;
+            font-size: 17px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .image-wrap {
+            padding: 14px;
+            overflow-x: auto;
+            background: white;
+        }
+
+        img {
+            max-width: 100%;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .empty {
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .empty strong {
+            display: block;
+            color: #111827;
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="title">C Optimization Visualizer</div>
+        <div class="badge">AST • CFG • Optimized CFG • Pipeline</div>
+    </header>
+
+    <div class="container">
+        <div class="left">
+            <form method="POST" class="editor-card" onsubmit="showGenerating()">
+                <div class="card-head">
+                    <h2>Input C Code</h2>
+                    <div class="hint">Paste code and generate graphs</div>
+                </div>
+
+                <textarea name="code" spellcheck="false">{{ code }}</textarea>
+
+                <div class="actions">
+                    <button id="generateBtn" type="submit">Generate Graphs</button>
+
+                    <div class="status" id="statusBox">
+                        <div class="spinner"></div>
+                        <span>Generating graphs...</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="right">
+            {% if images %}
+                <div class="panel">
+                    <h2>AST</h2>
+                    <div class="image-wrap">
+                        <img src="{{ url_for('static', filename=images.ast) }}">
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>Original CFG</h2>
+                    <div class="image-wrap">
+                        <img src="{{ url_for('static', filename=images.original) }}">
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>Optimized CFG</h2>
+                    <div class="image-wrap">
+                        <img src="{{ url_for('static', filename=images.optimized) }}">
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>Pipeline Graph</h2>
+                    <div class="image-wrap">
+                        <img src="{{ url_for('static', filename=images.pipeline) }}">
+                    </div>
+                </div>
+            {% else %}
+                <div class="panel">
+                    <div class="empty">
+                        <div>
+                            <strong>No graphs yet</strong>
+                            Enter C code and click Generate Graphs.
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        function showGenerating() {
+            const button = document.getElementById("generateBtn");
+            const statusBox = document.getElementById("statusBox");
+
+            button.disabled = true;
+            button.innerText = "Please wait";
+            statusBox.style.display = "flex";
+        }
+    </script>
+</body>
+</html>
