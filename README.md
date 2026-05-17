@@ -182,7 +182,7 @@ It acts as an educational mini-compiler framework for learning:
 
 ---
 
-# Technologies Used
+# Tools and Libraries
 
 - Python
 - pycparser
@@ -285,10 +285,10 @@ debug.c
 
 #  Team Members
 
-- Shubham
-- Shobhit Gupta
-- Abhijit Kamble
-- Tanish Kumar
-- Moinak Goswami
+- Shobhit Gupta  (2024CSB1155)
+- Shubham        (2024CSB1157)
+- Tanish Kumar   (2024CSB1161)
+- Moinak Goswami (2024CSB1225)
+- Abhijit Kamble (2024CSB1401)
 
 ---
