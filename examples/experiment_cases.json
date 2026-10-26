@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Zero rounds",
+    "stdin": "",
+    "args": [
+      "0"
+    ]
+  },
+  {
+    "label": "One round",
+    "stdin": "",
+    "args": [
+      "1"
+    ]
+  },
+  {
+    "label": "Representative workload",
+    "stdin": "",
+    "args": [
+      "400"
+    ]
+  }
+]

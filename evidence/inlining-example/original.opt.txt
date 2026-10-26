@@ -1,0 +1,142 @@
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:27:5: missed:   not inlinable: main/19 -> printf/21, function body not available
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:23: missed:   not inlinable: main/19 -> step/18, function not inlinable
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:17:52: missed:   not inlinable: main/19 -> strtoul/20, function body not available
+Unit growth for small function inlining: 46->46 (0%)
+
+Inlined 0 calls, eliminated 0 functions
+
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:11:25: note: ***** Analysis failed with vector mode VOID
+BB 11 is always executed in loop 3
+BB 8 is always executed in loop 2
+BB 7 is always executed in loop 2
+BB 9 is always executed in loop 2
+BB 5 is always executed in loop 1
+loop 3's coldest_outermost_loop is 3, hotter_than_inner_loop is NULL
+loop 2's coldest_outermost_loop is 2, hotter_than_inner_loop is NULL
+loop 4's coldest_outermost_loop is 2, hotter_than_inner_loop is NULL
+loop 1's coldest_outermost_loop is 1, hotter_than_inner_loop is NULL
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:21:32: missed: Guard edge 7 --> 8 is not around the loop!
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:21:32: optimized: applying unroll and jam with factor 2
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:26:32: optimized: loop vectorized using 16 byte vectors
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:21:32: missed: couldn't vectorize loop
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: missed: not vectorized: complicated access pattern.
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:22:36: missed: couldn't vectorize loop
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:22:36: missed: not vectorized: unsupported data-type
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:22:36: missed: couldn't vectorize loop
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: missed: not vectorized: complicated access pattern.
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:22:36: missed: couldn't vectorize loop
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:22:36: missed: not vectorized: unsupported data-type
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:20:32: optimized: loop vectorized using 16 byte vectors
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:14:5: note: vectorized 2 loops in function.
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:17:52: missed: statement clobbers memory: rounds_22 = strtoul (_1, 0B, 10);
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:27:5: missed: statement clobbers memory: printf ("%u\n", _68);
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: ***** Analysis succeeded with vector mode V2DI
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: SLPing BB part
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Costing subgraph: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node 000002256c5e4c68 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: op template: data[i_44] = _4;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	stmt 0 data[i_44] = _4;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	children 000002256c5e4cf0
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node (external) 000002256c5e4cf0 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	{ _4 }
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis for part in loop 4:
+  Vector cost: 22
+  Scalar cost: 12
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: missed: not vectorized: vectorization is not profitable.
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Costing subgraph: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node 000002256c5e4d78 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: op template: data[i_44] = _55;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	stmt 0 data[i_44] = _55;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	children 000002256c5e4e00
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node (external) 000002256c5e4e00 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	{ _55 }
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis for part in loop 4:
+  Vector cost: 22
+  Scalar cost: 12
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: missed: not vectorized: vectorization is not profitable.
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: ***** The result for vector mode V16QI would be the same
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: ***** Re-trying analysis with vector mode V8QI
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: ***** Analysis succeeded with vector mode V8QI
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: SLPing BB part
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Costing subgraph: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node 000002256c5e4d78 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: op template: data[i_44] = _4;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	stmt 0 data[i_44] = _4;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	children 000002256c5e4e00
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node (external) 000002256c5e4e00 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	{ _4 }
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis for part in loop 4:
+  Vector cost: 22
+  Scalar cost: 12
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: missed: not vectorized: vectorization is not profitable.
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Costing subgraph: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node 000002256c5e4c68 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: op template: data[i_44] = _55;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	stmt 0 data[i_44] = _55;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	children 000002256c5e4cf0
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node (external) 000002256c5e4cf0 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	{ _55 }
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis for part in loop 4:
+  Vector cost: 22
+  Scalar cost: 12
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: missed: not vectorized: vectorization is not profitable.
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: ***** Re-trying analysis with vector mode V4QI
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: ***** Analysis succeeded with vector mode V4QI
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: SLPing BB part
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Costing subgraph: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node 000002256c5e4c68 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: op template: data[i_44] = _4;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	stmt 0 data[i_44] = _4;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	children 000002256c5e4cf0
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node (external) 000002256c5e4cf0 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	{ _4 }
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis for part in loop 4:
+  Vector cost: 22
+  Scalar cost: 12
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: missed: not vectorized: vectorization is not profitable.
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Costing subgraph: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node 000002256c5e4d78 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: op template: data[i_44] = _55;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	stmt 0 data[i_44] = _55;
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	children 000002256c5e4e00
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: node (external) 000002256c5e4e00 (max_nunits=1, refcnt=1) vector(1) unsigned int
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: 	{ _55 }
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis: 
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: note: Cost model analysis for part in loop 4:
+  Vector cost: 22
+  Scalar cost: 12
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:23:21: missed: not vectorized: vectorization is not profitable.
+BB 11 is always executed in loop 3
+BB 23 is always executed in loop 6
+BB 21 is always executed in loop 6
+BB 20 is always executed in loop 6
+BB 33 is always executed in loop 2
+BB 7 is always executed in loop 2
+BB 9 is always executed in loop 2
+BB 5 is always executed in loop 1
+loop 3's coldest_outermost_loop is 3, hotter_than_inner_loop is NULL
+loop 6's coldest_outermost_loop is 6, hotter_than_inner_loop is NULL
+loop 5's coldest_outermost_loop is 6, hotter_than_inner_loop is NULL
+loop 2's coldest_outermost_loop is 2, hotter_than_inner_loop is NULL
+loop 4's coldest_outermost_loop is 2, hotter_than_inner_loop is NULL
+loop 1's coldest_outermost_loop is 1, hotter_than_inner_loop is NULL
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:26:32: note: considering unrolling loop 3 at BB 19
+considering unrolling loop with constant number of iterations
+considering unrolling loop with runtime-computable number of iterations
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:26:32: optimized: loop unrolled 1 times
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:22:36: note: considering unrolling loop 5 at BB 13
+considering unrolling loop with constant number of iterations
+considering unrolling loop with runtime-computable number of iterations
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:21:32: note: considering unrolling loop 6 at BB 12
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:22:36: note: considering unrolling loop 4 at BB 9
+considering unrolling loop with constant number of iterations
+considering unrolling loop with runtime-computable number of iterations
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:21:32: note: considering unrolling loop 2 at BB 17
+C:\Users\MOINAK\Documents\Codex\2026-10-25\in-x20\outputs\CS-202_Project-main\.optilab\runs\81cf30fbd418459e98180219060b1f51\original.c:20:32: note: considering unrolling loop 1 at BB 5
+considering unrolling loop with constant number of iterations
+considering unrolling loop with runtime-computable number of iterations

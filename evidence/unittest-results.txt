@@ -1,0 +1,47 @@
+test_for_continue_runs_increment (test_cfg.CFGTests.test_for_continue_runs_increment) ... ok
+test_loop_break_continue_have_targets (test_cfg.CFGTests.test_loop_break_continue_have_targets) ... ok
+test_no_edges_between_functions (test_cfg.CFGTests.test_no_edges_between_functions) ... ok
+test_return_is_a_terminator (test_cfg.CFGTests.test_return_is_a_terminator) ... ok
+test_strings_survive_comment_cleanup (test_cfg.CFGTests.test_strings_survive_comment_cleanup) ... ok
+test_unreachable_code_is_not_linked_after_return (test_cfg.CFGTests.test_unreachable_code_is_not_linked_after_return) ... ok
+test_unsupported_goto_is_explicit (test_cfg.CFGTests.test_unsupported_goto_is_explicit) ... ok
+test_arguments_are_passed_literally_without_a_shell (test_experiments.CompilerExperimentTests.test_arguments_are_passed_literally_without_a_shell) ... ok
+test_changed_stdout_is_a_counterexample (test_experiments.CompilerExperimentTests.test_changed_stdout_is_a_counterexample) ... ok
+test_each_run_has_an_isolated_directory (test_experiments.CompilerExperimentTests.test_each_run_has_an_isolated_directory) ... ok
+test_equivalent_unsigned_arithmetic_preserves_cases_and_artifacts (test_experiments.CompilerExperimentTests.test_equivalent_unsigned_arithmetic_preserves_cases_and_artifacts) ... ok
+test_exit_codes_and_stderr_are_observable (test_experiments.CompilerExperimentTests.test_exit_codes_and_stderr_are_observable) ... ok
+test_invalid_c_saves_diagnostics_without_execution (test_experiments.CompilerExperimentTests.test_invalid_c_saves_diagnostics_without_execution) ... ok
+test_missing_compiler_is_reported_without_execution (test_experiments.CompilerExperimentTests.test_missing_compiler_is_reported_without_execution) ... ok
+test_nontermination_is_inconclusive_and_stops_repeating (test_experiments.CompilerExperimentTests.test_nontermination_is_inconclusive_and_stops_repeating) ... ok
+test_raw_output_bytes_are_compared_before_lossy_decoding (test_experiments.CompilerExperimentTests.test_raw_output_bytes_are_compared_before_lossy_decoding) ... ok
+test_shell_flags_and_malformed_inputs_are_rejected (test_experiments.InputValidationTests.test_shell_flags_and_malformed_inputs_are_rejected) ... ok
+test_int32_unsigned32_conversions (test_optimizer.CompilerDifferentialTests.test_int32_unsigned32_conversions) ... ok
+test_known_semantic_regressions (test_optimizer.CompilerDifferentialTests.test_known_semantic_regressions) ... ok
+test_mutations_control_flow_and_side_effects (test_optimizer.CompilerDifferentialTests.test_mutations_control_flow_and_side_effects) ... ok
+test_pass_reordering_preserves_results (test_optimizer.CompilerDifferentialTests.test_pass_reordering_preserves_results) ... ok
+test_branch_assignments_reach_successor_read (test_optimizer.OptimizerContractTests.test_branch_assignments_reach_successor_read) ... ok
+test_dead_initializer_retains_needed_declaration (test_optimizer.OptimizerContractTests.test_dead_initializer_retains_needed_declaration) ... ok
+test_does_not_fold_undefined_or_implementation_defined_arithmetic (test_optimizer.OptimizerContractTests.test_does_not_fold_undefined_or_implementation_defined_arithmetic) ... ok
+test_include_and_comment_handling_preserves_string_contents (test_optimizer.OptimizerContractTests.test_include_and_comment_handling_preserves_string_contents) ... ok
+test_invalid_c_is_a_diagnostic (test_optimizer.OptimizerContractTests.test_invalid_c_is_a_diagnostic) ... ok
+test_iteration_validation_and_limit_diagnostic (test_optimizer.OptimizerContractTests.test_iteration_validation_and_limit_diagnostic) ... ok
+test_json_safe_trace_with_reasons (test_optimizer.OptimizerContractTests.test_json_safe_trace_with_reasons) ... ok
+test_pass_order_validation (test_optimizer.OptimizerContractTests.test_pass_order_validation) ... ok
+test_preprocessor_boundaries_and_unknown_call_type (test_optimizer.OptimizerContractTests.test_preprocessor_boundaries_and_unknown_call_type) ... ok
+test_rejects_unsupported_features_explicitly (test_optimizer.OptimizerContractTests.test_rejects_unsupported_features_explicitly) ... ok
+test_void_cast_is_preserved (test_optimizer.OptimizerContractTests.test_void_cast_is_preserved) ... ok
+test_analysis_rejects_non_json_and_missing_source (test_web.WebTests.test_analysis_rejects_non_json_and_missing_source) ... ok
+test_artifacts_only_serve_allowed_files_inside_the_run (test_web.WebTests.test_artifacts_only_serve_allowed_files_inside_the_run) ... ok
+test_compiler_validation_message_is_returned (test_web.WebTests.test_compiler_validation_message_is_returned) ... ok
+test_cross_origin_execution_is_rejected (test_web.WebTests.test_cross_origin_execution_is_rejected) ... ok
+test_execution_requires_explicit_experiment_post (test_web.WebTests.test_execution_requires_explicit_experiment_post) ... ok
+test_large_requests_get_json_error (test_web.WebTests.test_large_requests_get_json_error) ... ok
+test_toolchain_discovery_is_read_only (test_web.WebTests.test_toolchain_discovery_is_read_only) ... ok
+test_trace_uses_shared_optimizer_and_cfg (test_web.WebTests.test_trace_uses_shared_optimizer_and_cfg) ... ok
+test_unsupported_source_keeps_diagnostics (test_web.WebTests.test_unsupported_source_keeps_diagnostics) ... ok
+test_workspace_renders_without_compiling (test_web.WebTests.test_workspace_renders_without_compiling) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 41.418s
+
+OK

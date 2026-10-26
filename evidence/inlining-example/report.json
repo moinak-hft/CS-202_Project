@@ -1,0 +1,709 @@
+{
+  "schema_version": 1,
+  "run_id": "81cf30fbd418459e98180219060b1f51",
+  "status": "tested_equal",
+  "compiler": {
+    "name": "gcc",
+    "path": "C:\\msys64\\mingw64\\bin\\gcc.exe",
+    "available": true,
+    "version": "gcc.exe (Rev7, Built by MSYS2 project) 15.1.0\r\nCopyright (C) 2025 Free Software Foundation, Inc.\r\nThis is free software; see the source for copying conditions.  There is NO\r\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+    "target": "x86_64-w64-mingw32",
+    "kind": "gcc",
+    "reason": null,
+    "version_command": [
+      "C:\\msys64\\mingw64\\bin\\gcc.exe",
+      "--version"
+    ],
+    "target_command": [
+      "C:\\msys64\\mingw64\\bin\\gcc.exe",
+      "-dumpmachine"
+    ]
+  },
+  "configuration": {
+    "optimization": "-O3",
+    "repetitions": 3,
+    "timeout": 2.0,
+    "compile_timeout": 10.0,
+    "cases": [
+      {
+        "label": "Zero rounds",
+        "stdin": "",
+        "args": [
+          "0"
+        ]
+      },
+      {
+        "label": "One round",
+        "stdin": "",
+        "args": [
+          "1"
+        ]
+      },
+      {
+        "label": "Representative workload",
+        "stdin": "",
+        "args": [
+          "400"
+        ]
+      }
+    ]
+  },
+  "environment": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "architecture": "AMD64",
+    "python_version": "3.14.4"
+  },
+  "sources": {
+    "original": {
+      "sha256": "feb6d72b72fdc48df4113f97c2af73006869e5e053fcfb0e7964f0ca38d974ac",
+      "bytes": 715,
+      "path": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.c"
+    },
+    "candidate": {
+      "sha256": "70632548db0e79476730c16a2e37e2afca3988d6c9c2097874bcd6bc85d65a3a",
+      "bytes": 751,
+      "path": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.c"
+    }
+  },
+  "builds": {
+    "original": {
+      "success": true,
+      "flags": [
+        "-O3",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-g"
+      ],
+      "compile": {
+        "command": [
+          "C:\\msys64\\mingw64\\bin\\gcc.exe",
+          "-O3",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-g",
+          "-fopt-info-all=C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.opt.txt",
+          "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.c",
+          "-o",
+          "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "elapsed_seconds": 0.8561190999971586,
+        "timed_out": false,
+        "error": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 0,
+        "stdout_truncated": false,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_bytes": 0,
+        "stderr_truncated": false
+      },
+      "assembly": {
+        "command": [
+          "C:\\msys64\\mingw64\\bin\\gcc.exe",
+          "-O3",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-g",
+          "-S",
+          "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.c",
+          "-o",
+          "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.s"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "elapsed_seconds": 0.16063630000280682,
+        "timed_out": false,
+        "error": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 0,
+        "stdout_truncated": false,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_bytes": 0,
+        "stderr_truncated": false
+      },
+      "llvm_ir": null,
+      "artifacts": {
+        "source": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.c",
+        "executable": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+        "assembly": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.s",
+        "optimization_remarks": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.opt.txt",
+        "llvm_ir": null
+      }
+    },
+    "candidate": {
+      "success": true,
+      "flags": [
+        "-O3",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-g"
+      ],
+      "compile": {
+        "command": [
+          "C:\\msys64\\mingw64\\bin\\gcc.exe",
+          "-O3",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-g",
+          "-fopt-info-all=C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.opt.txt",
+          "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.c",
+          "-o",
+          "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "elapsed_seconds": 0.5916053000000829,
+        "timed_out": false,
+        "error": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 0,
+        "stdout_truncated": false,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_bytes": 0,
+        "stderr_truncated": false
+      },
+      "assembly": {
+        "command": [
+          "C:\\msys64\\mingw64\\bin\\gcc.exe",
+          "-O3",
+          "-std=c11",
+          "-Wall",
+          "-Wextra",
+          "-g",
+          "-S",
+          "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.c",
+          "-o",
+          "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.s"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "elapsed_seconds": 0.1594690999991144,
+        "timed_out": false,
+        "error": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 0,
+        "stdout_truncated": false,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_bytes": 0,
+        "stderr_truncated": false
+      },
+      "llvm_ir": null,
+      "artifacts": {
+        "source": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.c",
+        "executable": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+        "assembly": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.s",
+        "optimization_remarks": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.opt.txt",
+        "llvm_ir": null
+      }
+    }
+  },
+  "cases": [
+    {
+      "label": "Zero rounds",
+      "stdin": "",
+      "args": [
+        "0"
+      ],
+      "original": [
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "0"
+          ],
+          "returncode": 0,
+          "stdout": "16384\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.4088049999991199,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "0cf3b033a9e93a0bc41f772e408f46e947755926bd81e15a470ae9b14f697653",
+          "stdout_bytes": 7,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 1
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "0"
+          ],
+          "returncode": 0,
+          "stdout": "16384\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.01279889999932493,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "0cf3b033a9e93a0bc41f772e408f46e947755926bd81e15a470ae9b14f697653",
+          "stdout_bytes": 7,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 2
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "0"
+          ],
+          "returncode": 0,
+          "stdout": "16384\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.013677599999937229,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "0cf3b033a9e93a0bc41f772e408f46e947755926bd81e15a470ae9b14f697653",
+          "stdout_bytes": 7,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 3
+        }
+      ],
+      "candidate": [
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "0"
+          ],
+          "returncode": 0,
+          "stdout": "16384\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.17102089999752934,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "0cf3b033a9e93a0bc41f772e408f46e947755926bd81e15a470ae9b14f697653",
+          "stdout_bytes": 7,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 1
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "0"
+          ],
+          "returncode": 0,
+          "stdout": "16384\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.016211300000577467,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "0cf3b033a9e93a0bc41f772e408f46e947755926bd81e15a470ae9b14f697653",
+          "stdout_bytes": 7,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 2
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "0"
+          ],
+          "returncode": 0,
+          "stdout": "16384\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.015347100001235958,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "0cf3b033a9e93a0bc41f772e408f46e947755926bd81e15a470ae9b14f697653",
+          "stdout_bytes": 7,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 3
+        }
+      ],
+      "comparison": {
+        "equal": true,
+        "fields_differing": [],
+        "nondeterministic_observations": false,
+        "abnormal_execution": false
+      },
+      "status": "tested_equal"
+    },
+    {
+      "label": "One round",
+      "stdin": "",
+      "args": [
+        "1"
+      ],
+      "original": [
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "0\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.02286919999824022,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+          "stdout_bytes": 3,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 1
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "0\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.016836799997690832,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+          "stdout_bytes": 3,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 2
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "0\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.017846899998403387,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+          "stdout_bytes": 3,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 3
+        }
+      ],
+      "candidate": [
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "0\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.02490639999814448,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+          "stdout_bytes": 3,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 1
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "0\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.014220600001863204,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+          "stdout_bytes": 3,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 2
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "1"
+          ],
+          "returncode": 0,
+          "stdout": "0\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.01749790000030771,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+          "stdout_bytes": 3,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 3
+        }
+      ],
+      "comparison": {
+        "equal": true,
+        "fields_differing": [],
+        "nondeterministic_observations": false,
+        "abnormal_execution": false
+      },
+      "status": "tested_equal"
+    },
+    {
+      "label": "Representative workload",
+      "stdin": "",
+      "args": [
+        "400"
+      ],
+      "original": [
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "400"
+          ],
+          "returncode": 0,
+          "stdout": "1797046272\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.04107809999914025,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "773621f27326773264039d727915c8fdc804859e58602b59247a591d077a4169",
+          "stdout_bytes": 12,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 1
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "400"
+          ],
+          "returncode": 0,
+          "stdout": "1797046272\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.03243300000031013,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "773621f27326773264039d727915c8fdc804859e58602b59247a591d077a4169",
+          "stdout_bytes": 12,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 2
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.exe",
+            "400"
+          ],
+          "returncode": 0,
+          "stdout": "1797046272\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.032966999999189284,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "773621f27326773264039d727915c8fdc804859e58602b59247a591d077a4169",
+          "stdout_bytes": 12,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 3
+        }
+      ],
+      "candidate": [
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "400"
+          ],
+          "returncode": 0,
+          "stdout": "1797046272\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.02576950000002398,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "773621f27326773264039d727915c8fdc804859e58602b59247a591d077a4169",
+          "stdout_bytes": 12,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 1
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "400"
+          ],
+          "returncode": 0,
+          "stdout": "1797046272\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.02249850000225706,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "773621f27326773264039d727915c8fdc804859e58602b59247a591d077a4169",
+          "stdout_bytes": 12,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 2
+        },
+        {
+          "command": [
+            "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.exe",
+            "400"
+          ],
+          "returncode": 0,
+          "stdout": "1797046272\r\n",
+          "stderr": "",
+          "elapsed_seconds": 0.018155000001570443,
+          "timed_out": false,
+          "error": null,
+          "stdout_sha256": "773621f27326773264039d727915c8fdc804859e58602b59247a591d077a4169",
+          "stdout_bytes": 12,
+          "stdout_truncated": false,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "stderr_truncated": false,
+          "repetition": 3
+        }
+      ],
+      "comparison": {
+        "equal": true,
+        "fields_differing": [],
+        "nondeterministic_observations": false,
+        "abnormal_execution": false
+      },
+      "status": "tested_equal"
+    }
+  ],
+  "measurements": {
+    "metric": "process_wall_seconds",
+    "includes_process_startup": true,
+    "includes_runner_waiting_overhead": true,
+    "by_case": [
+      {
+        "label": "Zero rounds",
+        "original": {
+          "samples": [
+            0.4088049999991199,
+            0.01279889999932493,
+            0.013677599999937229
+          ],
+          "sample_count": 3,
+          "median_seconds": 0.013677599999937229,
+          "min_seconds": 0.01279889999932493,
+          "max_seconds": 0.4088049999991199
+        },
+        "candidate": {
+          "samples": [
+            0.17102089999752934,
+            0.016211300000577467,
+            0.015347100001235958
+          ],
+          "sample_count": 3,
+          "median_seconds": 0.016211300000577467,
+          "min_seconds": 0.015347100001235958,
+          "max_seconds": 0.17102089999752934
+        },
+        "median_ratio_original_over_candidate": 0.8437077840426133
+      },
+      {
+        "label": "One round",
+        "original": {
+          "samples": [
+            0.02286919999824022,
+            0.016836799997690832,
+            0.017846899998403387
+          ],
+          "sample_count": 3,
+          "median_seconds": 0.017846899998403387,
+          "min_seconds": 0.016836799997690832,
+          "max_seconds": 0.02286919999824022
+        },
+        "candidate": {
+          "samples": [
+            0.02490639999814448,
+            0.014220600001863204,
+            0.01749790000030771
+          ],
+          "sample_count": 3,
+          "median_seconds": 0.01749790000030771,
+          "min_seconds": 0.014220600001863204,
+          "max_seconds": 0.02490639999814448
+        },
+        "median_ratio_original_over_candidate": 1.0199452504637436
+      },
+      {
+        "label": "Representative workload",
+        "original": {
+          "samples": [
+            0.04107809999914025,
+            0.03243300000031013,
+            0.032966999999189284
+          ],
+          "sample_count": 3,
+          "median_seconds": 0.032966999999189284,
+          "min_seconds": 0.03243300000031013,
+          "max_seconds": 0.04107809999914025
+        },
+        "candidate": {
+          "samples": [
+            0.02576950000002398,
+            0.02249850000225706,
+            0.018155000001570443
+          ],
+          "sample_count": 3,
+          "median_seconds": 0.02249850000225706,
+          "min_seconds": 0.018155000001570443,
+          "max_seconds": 0.02576950000002398
+        },
+        "median_ratio_original_over_candidate": 1.4652976863294005
+      }
+    ],
+    "warning": "Small process timings are dominated by startup, I/O, scheduling, and measurement overhead. These observations are not kernel-only benchmark results or proof of a speedup."
+  },
+  "artifacts": {
+    "directory": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51",
+    "report": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\report.json",
+    "original_source": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\original.c",
+    "candidate_source": "C:\\Users\\MOINAK\\Documents\\Codex\\2026-10-25\\in-x20\\outputs\\CS-202_Project-main\\.optilab\\runs\\81cf30fbd418459e98180219060b1f51\\candidate.c"
+  },
+  "limitations": [
+    "Only supplied inputs and observed stdout, stderr, and exit codes are compared. Memory, filesystem, network, and other side effects are not compared.",
+    "Matching observations do not prove equivalence or absence of C undefined behavior. No sanitizer or formal verifier is run.",
+    "Programs execute locally with the runner account permissions. This runner is not a security sandbox.",
+    "Compiler diagnostics and generated assembly are evidence of this exact compiler configuration, not a complete causal explanation.",
+    "Text output is decoded as UTF-8 with replacement and truncated after 128,000 bytes; comparisons use full raw-output SHA-256 hashes.",
+    "Known abnormal exits, timeouts, and changing observations are classified as inconclusive."
+  ],
+  "summary": "Both programs produced matching stdout, stderr, and exit codes on the supplied cases and repetitions. This is observed agreement, not a proof of equivalence."
+}

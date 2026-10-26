@@ -1,0 +1,22 @@
+{
+  "constant_pipeline.c": {
+    "name": "Constant pipeline",
+    "description": "Trace propagation, folding and elimination, then compare the emitted C."
+  },
+  "loop_regression.c": {
+    "name": "Loop correctness regression",
+    "description": "Loop-carried facts must not turn a terminating loop into a constant-true loop."
+  },
+  "branch_liveness.c": {
+    "name": "Branch liveness",
+    "description": "Assignments in both branches supply the value returned after the branch."
+  },
+  "vectorization_original.c": {
+    "name": "Inlining experiment · original",
+    "description": "Compiler experiment: compare against vectorization_candidate.c. Array programs use the compiler backend; the experimental optimizer rejects arrays."
+  },
+  "vectorization_candidate.c": {
+    "name": "Inlining experiment · candidate",
+    "description": "Same unsigned-integer computation with the noinline constraint removed. Copy into the candidate editor and measure actual compiler behavior."
+  }
+}

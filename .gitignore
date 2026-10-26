@@ -1,0 +1,8 @@
+.venv/
+.runtime/
+.optilab/
+.test-work/
+__pycache__/
+*.py[cod]
+*.exe
+*.bin
